@@ -4,16 +4,15 @@ import traceback
 from bot import UserHandler
 from alarm_user_handler import AlarmUserHandler
 from bot import UserIndependentBot
+from tictactoe_user_handler import TicTacToeUserHandler
 
 
 def send_message(user_id: int, message: str) -> None:
-    print('==========')
-    print(message)
-    print('==========')
+    print(message, end='')
 
 
 def main() -> None:
-    bot = UserIndependentBot(send_message=send_message, user_handler=AlarmUserHandler)
+    bot = UserIndependentBot(send_message=send_message, user_handler=TicTacToeUserHandler)
     for line in sys.stdin:
         try:
             message = line.rstrip('\n')
